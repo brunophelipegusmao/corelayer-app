@@ -1,0 +1,16 @@
+<app-card [animation]="animation">
+  <app-card-header>
+    <app-card-title>{{ title }}</app-card-title>
+  </app-card-header>
+
+  <app-card-content>
+    <p class="mb-4">{{ description }}</p>
+    <ul class="text-card-foreground/80 list-inside list-disc space-y-2">
+      @for (feature of features; track feature) {
+        <li class="hover:text-primary transition-colors duration-200">
+          {{ feature }}
+        </li>
+      }
+    </ul>
+  </app-card-content>
+</app-card>

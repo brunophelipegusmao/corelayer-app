@@ -1,3 +1,391 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 
-@import 'tailwindcss';
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Cores Corelayer - tema escuro */
+    --primary: #1B6AFF;
+    --primary-010: #2780FF;
+    --primary-020: #3B8CFF;
+    --primary-030: #4F98FF;
+
+    --secondary: #0E0E10;
+    --secondary-010: #1A1A1D;
+    --secondary-020: #252529;
+    --secondary-030: #303035;
+
+    --white: #fff;
+    --grey: #adadad;
+
+    --black: #0E0E10;
+    --black-010: #000000;
+  }
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Tema Light - Corelayer */
+  --background: #FFFFFF;
+  --foreground: #0E0E10;
+  --card: #F5F5F7;
+  --card-foreground: #0E0E10;
+  --popover: #FFFFFF;
+  --popover-foreground: #0E0E10;
+  --primary: #1B6AFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F5F7;
+  --secondary-foreground: #0E0E10;
+  --muted: #E8E8EA;
+  --muted-foreground: #6B6B6B;
+  --accent: #2780FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #E8E8EA;
+  --input: #E8E8EA;
+  --ring: #1B6AFF;
+
+  /* Charts tema light */
+  --chart-1: #1B6AFF;
+  --chart-2: #2780FF;
+  --chart-3: #3B8CFF;
+  --chart-4: #4F98FF;
+  --chart-5: #63A4FF;
+
+  /* Sidebar tema light */
+  --sidebar: #F5F5F7;
+  --sidebar-foreground: #0E0E10;
+  --sidebar-primary: #1B6AFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8E8EA;
+  --sidebar-accent-foreground: #0E0E10;
+  --sidebar-border: #E8E8EA;
+  --sidebar-ring: #1B6AFF;
+}
+
+.dark {
+  /* Tema Dark - Corelayer */
+  --background: #0E0E10;
+  --foreground: #FFFFFF;
+  --card: #1A1A1D;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1D;
+  --popover-foreground: #FFFFFF;
+  --primary: #1B6AFF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #252529;
+  --secondary-foreground: #FFFFFF;
+  --muted: #252529;
+  --muted-foreground: #9B9B9B;
+  --accent: #2780FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #252529;
+  --input: #1A1A1D;
+  --ring: #1B6AFF;
+
+  /* Charts tema dark */
+  --chart-1: #1B6AFF;
+  --chart-2: #2780FF;
+  --chart-3: #3B8CFF;
+  --chart-4: #4F98FF;
+  --chart-5: #FFFFFF;
+
+  /* Sidebar tema dark */
+  --sidebar: #0E0E10;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #1B6AFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1A1A1D;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #252529;
+  --sidebar-ring: #1B6AFF;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animações Personalizadas */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Classes de animação */
+.fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+/* Delays de animação */
+.animate-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.animate-delay-500 {
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.animate-delay-600 {
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.animate-delay-700 {
+  animation-delay: 0.7s;
+  opacity: 0;
+}
+
+.animate-delay-1000 {
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+@keyframes spotlight-pulse {
+  0% {
+    opacity: 0.18;
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+
+  50% {
+    opacity: 0.34;
+    transform: translate3d(0, -12px, 0) scale(1.08);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: translate3d(0, 0, 0) scale(0.98);
+  }
+}
+
+.tech-page {
+  position: relative;
+  background-image:
+    radial-gradient(circle at 10% -10%, rgb(27 106 255 / 0.25), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgb(39 128 255 / 0.14), transparent 36%);
+}
+
+.tech-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.tech-spotlight {
+  background: radial-gradient(
+    circle at center,
+    rgb(27 106 255 / 0.48),
+    rgb(27 106 255 / 0)
+  );
+  animation: spotlight-pulse 10s ease-in-out infinite;
+}
+
+.tech-panel {
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.02));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 55px rgb(0 0 0 / 0.3);
+  padding: 1.3rem;
+}
+
+.tech-chip {
+  border: 1px solid rgb(27 106 255 / 0.34);
+  border-radius: 9999px;
+  background: rgb(27 106 255 / 0.12);
+  color: rgb(133 180 255);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  padding: 0.42rem 0.7rem;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(95deg, #1b6aff 15%, #7ab1ff 45%, #e8f2ff 95%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}

@@ -1,13 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>CorelayerApp</title>
+  <title>Corelayer - Análise de sistemas, entrega previsível</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="description" content="Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.">
+  <meta name="keywords" content="corelayer, clean architecture, desenvolvimento web, desenvolvimento mobile, apis, dashboards, next.js, react, typescript">
+  <meta name="theme-color" content="#1B6AFF">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <link rel="manifest" href="/pwa/manifest.webmanifest">
+  <link rel="shortcut icon" href="/web/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/web/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="/web/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/web/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="apple-touch-icon" href="/web/apple-touch-icon-180x180.png" sizes="180x180">
+
+  <meta property="og:title" content="Corelayer - Análise de sistemas, entrega previsível">
+  <meta property="og:description" content="Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bgm-tecnologia.vercel.app">
+  <meta property="og:image" content="/og-image.svg">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Corelayer - Análise de sistemas, entrega previsível">
+  <meta name="twitter:description" content="Sistemas sob medida para web e mobile com foco em performance e qualidade.">
+  <meta name="twitter:image" content="/og-image.svg">
+
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(theme);
+    })();
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://bgm-tecnologia.vercel.app/#organization",
+          "name": "Corelayer",
+          "url": "https://bgm-tecnologia.vercel.app",
+          "logo": "https://bgm-tecnologia.vercel.app/logo.svg",
+          "description": "Sistemas sob medida para web e mobile. Do planejamento ao deploy, com foco em performance, DX e qualidade de produção."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://bgm-tecnologia.vercel.app/#website",
+          "url": "https://bgm-tecnologia.vercel.app",
+          "name": "Corelayer",
+          "description": "Análise de sistemas, entrega previsível",
+          "inLanguage": "pt-BR"
+        }
+      ]
+    }
+  </script>
 </head>
-<body>
+<body class="antialiased text-foreground bg-background">
   <app-root></app-root>
 </body>
 </html>

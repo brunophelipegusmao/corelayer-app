@@ -1,0 +1,36 @@
+<main class="bg-background text-foreground tech-page min-h-screen px-4 py-10 md:py-14">
+  <div class="mx-auto max-w-6xl">
+    <section class="tech-panel mb-10 md:mb-12">
+      <span class="text-primary text-xs tracking-[0.18em] uppercase">
+        Projetos e execução
+      </span>
+      <h1 class="mt-3 text-4xl leading-tight font-bold text-balance md:text-5xl">
+        Portfólio com foco em produto, performance e escalabilidade.
+      </h1>
+      <p class="text-foreground/75 mt-4 max-w-3xl text-base md:text-lg">
+        A seleção abaixo representa as stacks e bibliotecas que você mais usa em produção, incluindo animação avançada, backend robusto e integrações modernas.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        @for (tag of stackTags; track tag) {
+          <span class="tech-chip">{{ tag }}</span>
+        }
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+      @for (project of projects; track project.title; let i = $index) {
+        <app-project-card
+          [title]="project.title"
+          [description]="project.description"
+          [technologies]="project.technologies"
+          [image]="project.image"
+          [placeholderImage]="project.placeholderImage"
+          [href]="project.projectUrl"
+          [githubUrl]="project.githubUrl"
+          [animation]="'animate-fade-in-up ' + delayClasses[i % delayClasses.length]"
+        />
+      }
+    </section>
+  </div>
+</main>

@@ -1,0 +1,111 @@
+<main class="bg-background text-foreground tech-page relative min-h-screen overflow-hidden">
+  <section class="relative px-4 pt-20 pb-20 md:pt-28 md:pb-24">
+    <div class="tech-grid-overlay" aria-hidden="true"></div>
+    <div class="tech-spotlight pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-6xl">
+      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary fade-in-up">
+        <lucide-angular [img]="iconShieldCheck" class="h-4 w-4" />
+        Analista de Sistemas com execução previsível
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
+        <div class="fade-in-up animate-delay-200">
+          <h1 class="text-balance text-4xl leading-tight font-bold md:text-5xl">
+            Produto digital com
+            <span class="text-gradient-primary"> visual moderno</span>,
+            análise técnica e stack real de produção.
+          </h1>
+
+          <p class="text-foreground/75 mt-6 max-w-2xl text-lg leading-relaxed">
+            Atuo de forma independente como Analista de Sistemas e Desenvolvedor, criando sistemas web, mobile e APIs com foco em performance, manutenção e experiência de uso.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <app-button href="/portfolio" variant="primary" size="lg" className="inline-flex items-center gap-2">
+              Explorar Portfólio
+              <lucide-angular [img]="iconArrowRight" class="h-4 w-4" />
+            </app-button>
+
+            <app-button href="/contact" variant="secondary" size="lg">
+              Iniciar Projeto
+            </app-button>
+          </div>
+        </div>
+
+        <div class="tech-panel fade-in-up animate-delay-400">
+          <div class="mb-5 overflow-hidden rounded-xl border border-white/10">
+            <img
+              src="/illustrations/tech-command-center.svg"
+              alt="Painel tecnológico com métricas de produto e monitoramento"
+              class="h-44 w-full object-cover"
+            />
+          </div>
+
+          <h2 class="mb-5 text-lg font-semibold">Snapshot Técnico</h2>
+
+          <div class="space-y-3">
+            @for (highlight of highlights; track highlight.label) {
+              <div class="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                <div class="flex items-center gap-2">
+                  <lucide-angular [img]="highlight.icon" class="text-primary h-4 w-4" />
+                  <span class="text-sm">{{ highlight.label }}</span>
+                </div>
+                <strong class="text-gradient-primary text-sm font-semibold">{{ highlight.value }}</strong>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative mx-auto max-w-6xl px-4 pb-20 md:pb-24">
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold">Stack que eu uso nos meus repositórios</h2>
+      <p class="text-foreground/70 mt-3">
+        Tecnologias aplicadas nos projetos que mantenho no GitHub e refletidas no posicionamento visual do site.
+      </p>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      @for (group of techGroups; track group.title) {
+        <article class="tech-panel h-full animate-fade-in-up">
+          <div class="mb-5 flex items-center gap-2">
+            <span class="bg-primary/15 text-primary rounded-lg p-2">
+              <lucide-angular [img]="group.icon" class="h-5 w-5" />
+            </span>
+            <h3 class="text-xl font-semibold">{{ group.title }}</h3>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            @for (item of group.items; track item) {
+              <span class="tech-chip">{{ item }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="relative mx-auto max-w-6xl px-4 pb-24">
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold">Fluxo de execução</h2>
+      <p class="text-foreground/70 mt-3">
+        Estrutura de entrega orientada a previsibilidade, sem sacrificar velocidade.
+      </p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-3">
+      @for (step of deliveryFlow; track step.title; let i = $index) {
+        <div class="tech-panel h-full animate-fade-in-up" [class.animate-delay-200]="i === 0" [class.animate-delay-300]="i === 1" [class.animate-delay-400]="i === 2">
+          <span class="text-primary/80 text-xs tracking-[0.18em] uppercase">
+            Etapa {{ i + 1 }}
+          </span>
+          <h3 class="mt-2 text-xl font-semibold">{{ step.title }}</h3>
+          <p class="text-foreground/75 mt-3">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</main>

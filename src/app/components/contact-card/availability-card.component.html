@@ -1,0 +1,19 @@
+<app-card [animation]="animation">
+  <app-card-header>
+    <app-card-title>Disponibilidade</app-card-title>
+  </app-card-header>
+
+  <app-card-content>
+    <p class="text-card-foreground/80 mb-4">{{ description }}</p>
+    <div class="space-y-2">
+      @for (item of availability; track item.day + item.time) {
+        <div class="hover:text-primary flex justify-between transition-colors duration-300">
+          <span>{{ item.day }}</span>
+          <span [class]="item.available !== false ? 'text-primary' : 'text-muted-foreground'">
+            {{ item.time }}
+          </span>
+        </div>
+      }
+    </div>
+  </app-card-content>
+</app-card>

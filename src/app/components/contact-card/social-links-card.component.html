@@ -1,0 +1,20 @@
+<app-card [animation]="animation">
+  <app-card-header>
+    <app-card-title>Redes Sociais</app-card-title>
+  </app-card-header>
+
+  <app-card-content>
+    <div class="grid grid-cols-2 gap-3">
+      @for (link of links; track link.href) {
+        <a
+          [href]="link.href"
+          class="bg-accent text-accent-foreground hover:shadow-primary/20 rounded-lg p-3 text-center transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ link.name }}
+        </a>
+      }
+    </div>
+  </app-card-content>
+</app-card>

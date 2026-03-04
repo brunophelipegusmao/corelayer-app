@@ -1,0 +1,15 @@
+@if (href && !disabled) {
+  @if (isExternalLink(href)) {
+    <a [href]="href" target="_blank" rel="noopener noreferrer" [class]="classes">
+      <ng-content />
+    </a>
+  } @else {
+    <a [routerLink]="href" [class]="classes">
+      <ng-content />
+    </a>
+  }
+} @else {
+  <button [type]="type" [disabled]="disabled" [class]="classes">
+    <ng-content />
+  </button>
+}
